@@ -3,8 +3,16 @@
   <h2>Create a new dog</h2>
   
   <label for="name" class="">Dog name: </label>
-  <input type="text" name="name" [(ngModel)]="name" id="name">
+  <input type="text" name="name" [(ngModel)]="name" id="name" placeholder="Dog name">
 
   
   <button (click)="onCreateDog()">Create dog</button>
+  
+  <h2>Dogs list:</h2>
+  <ul *ngIf="isLoading === false">
+    <li *ngFor="let dog of dogs">
+      id: {{ dog.id }}, name: {{ dog.name }}
+    </li>
+  </ul>
+  <p *ngIf="isLoading === true">Loading...</p>
 </div>
